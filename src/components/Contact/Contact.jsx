@@ -1,13 +1,21 @@
 import css from "./Contact.module.css";
+import { IoPersonSharp } from "react-icons/io5";
+import { FaPhoneAlt } from "react-icons/fa";
 
-const Contact = () => {
+const Contact = ({ data: { name, number, id }, deleteContact }) => {
   return (
-    <div>
+    <div className={css.contactInfo}>
       <div>
-        <p></p>
-        <p></p>
+        <p>
+          <IoPersonSharp className={css.contactIcon} />
+          {name}
+        </p>
+        <p>
+          <FaPhoneAlt className={css.contactIcon} />
+          {number}
+        </p>
       </div>
-      <button >
+      <button className={css.contactDelete} onClick={() => deleteContact(id)}>
         Delete
       </button>
     </div>
